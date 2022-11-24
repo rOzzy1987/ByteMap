@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Drawing;
 using System.IO;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using ByteMap.BLL;
 
@@ -78,6 +79,8 @@ namespace ByteMap
 
         private void button2_Click(object sender, EventArgs e)
         {
+            saveFileDialog1.FileName = Regex.Replace(textBox1.Text, "[^a-zA-Z0-9-_.]", "");
+
             if (saveFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 try { 
